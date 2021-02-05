@@ -1,3 +1,8 @@
+import 'dart:ui';
+import 'package:three_in_one_game/screens/Blipel.dart';
+
+import 'Alias.dart';
+import 'Pantamima.dart';
 import 'package:flutter/material.dart';
 import 'package:three_in_one_game/localization/consts.dart';
 import 'package:three_in_one_game/localization/langs.dart';
@@ -18,27 +23,94 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Alias,
+      backgroundColor: alias,
       appBar: AppBar(
         title: Text(getTranslated(context, 'hi')),
       ),
       body: Center(
         child: Column(
           children: [
-            DropdownButton<Language>(
-              iconSize: 30,
-              hint: Text(getTranslated(context, 'hi')),
-              onChanged: (Language language) {
-                _changeLanguage(language);
-              },
-              items: Language.languageList()
-                  .map<DropdownMenuItem<Language>>(
-                    (e) => DropdownMenuItem<Language>(
-                  value: e,
-                  child: Text(e.name),
-                ),
-              )
-                  .toList(),
+            Padding(
+              padding: const EdgeInsets.only(left: 340),
+              child: IconButton(
+                      onPressed: () {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) => ),
+                      },
+                      icon: Icon(Icons.settings)),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(top: 250,bottom: 8.0),
+              child: Container(
+                width: 250,
+                 height: 70,
+                  child: FlatButton(
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      side: BorderSide(color: Colors.blueAccent),
+                    ),
+                    child: Text(
+                        getTranslated(context, 'ALIAS'),
+                        style: TextStyle(fontSize: 25,color: Colors.white)
+                    ),
+                    color: Colors.deepPurpleAccent,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Alias()));
+                    },
+                  )
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: 250,
+                 height: 70,
+                  child: FlatButton(
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      side: BorderSide(color: Colors.blueAccent),
+                    ),
+                    child: Text(
+                        getTranslated(context, 'PANTAMIMA'),
+                      style: TextStyle(fontSize: 25,color: Colors.white)
+                    ),
+                    color: Colors.deepPurpleAccent,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Pantamima()));
+                    },
+                  )
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: 250,
+                 height: 70,
+                 child: FlatButton(
+                   shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.circular(20),
+                     side: BorderSide(color: Colors.blueAccent),
+                   ),
+                   child: Text(
+                       getTranslated(context, 'BLIPEL'),
+                       style: TextStyle(fontSize: 25,color: Colors.white)
+                   ),
+                   color: Colors.deepPurpleAccent,
+                   onPressed: () {
+                     Navigator.push(
+                         context,
+                         MaterialPageRoute(builder: (context) => Blipel()));
+                   },
+                 )
+              ),
             )
           ],
         ),

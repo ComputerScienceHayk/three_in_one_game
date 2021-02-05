@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Color Alias = Colors.pink[50];
+Color alias = Colors.pink[50];
 
 class Styles extends StatefulWidget {
   @override

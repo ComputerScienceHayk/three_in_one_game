@@ -45,7 +45,7 @@ class _ThreeInOneState extends State<ThreeInOne> {
 
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.black, //or set color with: Color(0xFF0000FF)
-      systemNavigationBarColor: Colors.red,
+      systemNavigationBarColor: Colors.blue,
       //systemNavigationBarDividerColor: Colors.green
     ));
 
@@ -87,3 +87,4 @@ class _ThreeInOneState extends State<ThreeInOne> {
     }
   }
 }
+
