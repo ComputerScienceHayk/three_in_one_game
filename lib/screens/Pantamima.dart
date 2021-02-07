@@ -52,27 +52,30 @@ class _PantamimaState extends State<Pantamima> {
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            FloatingActionButton(child: Text("About"), onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AboutPantamima()),
+              );
+            },
+                heroTag: null),
+
             Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: FloatingActionButton(child: Text("About"), onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AboutPantamima()),
-                );
-              },
+              padding: const EdgeInsets.all(30),
+              child: FloatingActionButton(child: Text("Start",style: TextStyle(fontSize: 20),), onPressed: () {},
                   heroTag: null),
             ),
             FloatingActionButton(
-              onPressed: () {
-                list.add(new TextField(
-                  decoration:
-                  InputDecoration(hintText: 'Team ${list.length + 1}'),
-                ));
-                setState(() {});
-              },
-              heroTag: null,
-              child: new Icon(Icons.add),
-            )
+                onPressed: () {
+                  list.add(new TextField(
+                    decoration:
+                    InputDecoration(hintText: 'Team ${list.length + 1}'),
+                  ));
+                  setState(() {});
+                },
+                heroTag: null,
+                child:Text(" Add \nteam")
+            ),
           ],
         ));
   }

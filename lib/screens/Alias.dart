@@ -52,15 +52,18 @@ class _AliasState extends State<Alias> {
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: FloatingActionButton(child: Text("About"), onPressed: () {
+              FloatingActionButton(child: Text("About"), onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => AboutAlias()),
                 );
               },
               heroTag: null),
+
+            Padding(
+              padding: const EdgeInsets.all(30),
+              child: FloatingActionButton(child: Text("Start",style: TextStyle(fontSize: 20),), onPressed: () {},
+                  heroTag: null),
             ),
             FloatingActionButton(
               onPressed: () {
@@ -71,8 +74,9 @@ class _AliasState extends State<Alias> {
                 setState(() {});
               },
               heroTag: null,
-              child: new Icon(Icons.add),
-            )
+              child:Text(" Add \nteam")
+            ),
+
           ],
         ));
   }
