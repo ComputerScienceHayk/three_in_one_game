@@ -31,6 +31,9 @@ class _BlipelState extends State<Blipel> {
     }
     return new Scaffold(
         backgroundColor: alias,
+        appBar: AppBar(
+          title: Text("Blipel"),
+        ),
         body: ListView(
           children: [
             Padding(

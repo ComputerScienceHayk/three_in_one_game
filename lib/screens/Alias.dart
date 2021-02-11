@@ -30,6 +30,9 @@ class _AliasState extends State<Alias> {
     }
     return new Scaffold(
         backgroundColor: alias,
+        appBar: AppBar(
+          title: Text("Alias"),
+        ),
         body: ListView(
           children: [
             Padding(

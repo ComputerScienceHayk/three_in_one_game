@@ -45,111 +45,116 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    final fullW = MediaQuery.of(context).size.width * 1.00;
+    final fullH = MediaQuery.of(context).size.height * 1.00;
+
+    final buttonW = fullW * 0.60;
+    final buttonH = fullH * 0.10;
+
     return WillPopScope(
       onWillPop: _onWillPop,
       child:Scaffold(
       backgroundColor: alias,
       appBar: AppBar(
-        title: Text(getTranslated(context, 'hi')),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            Row(children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 250),
-                child: IconButton(
-                    onPressed: () {
-                      Share.share('https://example.com');
-                    },
-                    icon: Icon(Icons.share)),
+        elevation: 0.0,
+        backgroundColor: alias,
+        title:  Container(
+          width: fullW,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                  onPressed: () {
+                    Share.share('https://example.com');
+                  },
+                  icon: Icon(Icons.share, color: Colors.black)
               ),
-              Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: IconButton(
-                 onPressed: (){
-                   Navigator.push(
-                       context,
-                       MaterialPageRoute(builder: (context) => Settings()));
-                 },
-                  icon: Icon(Icons.settings)),
-            ),
-
-
-            ],),
-
-            Padding(
-              padding: const EdgeInsets.only(top: 250,bottom: 8.0),
-              child: Container(
-                width: 250,
-                 height: 70,
-                  child: FlatButton(
-                    textColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(color: Colors.blueAccent),
-                    ),
-                    child: Text(
-                        getTranslated(context, 'ALIAS'),
-                        style: TextStyle(fontSize: 25,color: Colors.white)
-                    ),
-                    color: Colors.deepPurpleAccent,
-                    onPressed: () {
-                      Navigator.push(
+              IconButton(
+                  onPressed: (){
+                    Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Alias()));
-                    },
-                  )
+                        MaterialPageRoute(builder: (context) => Settings()));
+                  },
+                  icon: Icon(Icons.settings, color: Colors.black)
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: 250,
-                 height: 70,
-                  child: FlatButton(
-                    textColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(color: Colors.blueAccent),
-                    ),
-                    child: Text(
-                        getTranslated(context, 'PANTAMIMA'),
-                      style: TextStyle(fontSize: 25,color: Colors.white)
-                    ),
-                    color: Colors.deepPurpleAccent,
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Pantamima()));
-                    },
-                  )
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: 250,
-                 height: 70,
-                 child: FlatButton(
-                   shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.circular(20),
-                     side: BorderSide(color: Colors.blueAccent),
-                   ),
-                   child: Text(
-                       getTranslated(context, 'BLIPEL'),
-                       style: TextStyle(fontSize: 25,color: Colors.white)
-                   ),
-                   color: Colors.deepPurpleAccent,
-                   onPressed: () {
-                     Navigator.push(
-                         context,
-                         MaterialPageRoute(builder: (context) => Blipel()));
-                   },
-                 )
-              ),
-            )
-          ],
+            ],),
+        ),
+      ),
+      body: Container(
+        width: fullW,
+        height: fullH,
+        alignment: Alignment.center,
+        child: Container(
+            width: fullW,
+            height: fullH * 0.45,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                    width: buttonW,
+                    height: buttonH,
+                    child: FlatButton(
+                      textColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        side: BorderSide(color: Colors.blueAccent),
+                      ),
+                      child: Text(
+                          getTranslated(context, 'ALIAS'),
+                          style: TextStyle(fontSize: 25,color: Colors.white)
+                      ),
+                      color: Colors.deepPurpleAccent,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Alias()));
+                      },
+                    )
+                ),
+                Container(
+                    width: buttonW,
+                    height: buttonH,
+                    child: FlatButton(
+                      textColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        side: BorderSide(color: Colors.blueAccent),
+                      ),
+                      child: Text(
+                          getTranslated(context, 'PANTAMIMA'),
+                          style: TextStyle(fontSize: 25,color: Colors.white)
+                      ),
+                      color: Colors.deepPurpleAccent,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Pantamima()));
+                      },
+                    )
+                ),
+                Container(
+                    width: buttonW,
+                    height: buttonH,
+                    child: FlatButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        side: BorderSide(color: Colors.blueAccent),
+                      ),
+                      child: Text(
+                          getTranslated(context, 'BLIPEL'),
+                          style: TextStyle(fontSize: 25,color: Colors.white)
+                      ),
+                      color: Colors.deepPurpleAccent,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Blipel()));
+                      },
+                    )
+                ),
+              ],
+          ),
         ),
       ),
     ));

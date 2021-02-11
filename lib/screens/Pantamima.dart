@@ -30,6 +30,9 @@ class _PantamimaState extends State<Pantamima> {
     }
     return new Scaffold(
         backgroundColor: alias,
+        appBar: AppBar(
+          title: Text("Pantamima"),
+        ),
         body: ListView(
           children: [
             Padding(

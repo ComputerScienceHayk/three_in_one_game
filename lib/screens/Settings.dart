@@ -34,10 +34,18 @@ class _SettingsState extends State<Settings> {
     }
     return new Scaffold(
       backgroundColor: alias,
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: alias,
+        title: Text("Setting", style: TextStyle(color: Colors.black)),
+        iconTheme: IconThemeData(
+          color: Colors.black
+        ),
+      ),
       body: ListView(
         children: [
           ListTile(
-            title: Text("          General"),
+            title: Text("General"),
             // onTap: () => ,
           ),
           Divider(
@@ -53,7 +61,7 @@ class _SettingsState extends State<Settings> {
             // onTap: () => ,
           ),
           ListTile(
-            title: Text("           Game"),
+            title: Text("Game"),
           ),
           ListTile(
             leading: Icon(Icons.language),

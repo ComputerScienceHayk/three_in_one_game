@@ -19,6 +19,9 @@ class _AboutBlipelState extends State<AboutBlipel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("About"),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 40,left: 20,right: 20),
         child: Container(
