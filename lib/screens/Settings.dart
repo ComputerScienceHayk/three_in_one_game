@@ -18,7 +18,10 @@ class _SettingsState extends State<Settings> {
   }
 
   final List<Widget> list = new List<Widget>();
-  double _value = 20;
+  double _valueTime = 20;
+  double _valueWiningPoint = 100;
+  bool isSwitched = false;
+
   @override
   Widget build(BuildContext context) {
     if (list.length < 3) {
@@ -64,32 +67,75 @@ class _SettingsState extends State<Settings> {
             subtitle: Text("in seconds"),
             // onTap: () => ,
           ),
-          Slider(
-            min: 0,
-            max: 100,
-            value: _value,
-            onChanged: (value) {
-              setState(() {
-                _value = value;
-              });
-            },
+          SliderTheme(
+              data: SliderThemeData(
+                trackHeight: 1,
+              ),
+              child: Slider(
+                min: 0,
+                max: 100,
+                value: _valueTime,
+                onChanged: (value) {
+                  setState(() {
+                    _valueTime = value;
+                  });
+                },
+              )),
+          ListTile(
+            leading: Icon(Icons.bar_chart),
+            title: Text("Wining points"),
+            // onTap: () => ,
+          ),
+          SliderTheme(
+              data: SliderThemeData(
+                trackHeight: 1,
+              ),
+              child: Slider(
+                min: 0,
+                max: 200,
+                value: _valueWiningPoint,
+                onChanged: (value) {
+                  setState(() {
+                    _valueWiningPoint = value;
+                  });
+                },
+              )),
+          ListTile(
+            leading: Icon(Icons.volume_up_outlined),
+            title: Text("Voice"),
+            subtitle: Text("Voice in the game"),
+            trailing: Switch(
+              value: isSwitched,
+              onChanged: (value) {
+                setState(() {
+                  isSwitched = value;
+                  print(isSwitched);
+                });
+              },
+              activeTrackColor: Colors.blue,
+              activeColor: Colors.lightBlueAccent,
+            ),
+            // onTap: () => ,
+          ),
+          Text("                  Help"),
+          Divider(
+            thickness: 1,
           ),
           ListTile(
-            leading: Icon(Icons.brush),
-            title: Text("Theme"),
-            subtitle: Text("default"),
+            leading: Icon(Icons.feedback_outlined),
+            title: Text("Feedback"),
+            subtitle: Text("Report technical issues or suggest new features"),
             // onTap: () => ,
           ),
           ListTile(
-            leading: Icon(Icons.brush),
-            title: Text("Theme"),
-            subtitle: Text("default"),
+            leading: Icon(Icons.star_rate_outlined),
+            title: Text("Rate us"),
             // onTap: () => ,
           ),
           ListTile(
-            leading: Icon(Icons.brush),
-            title: Text("Theme"),
-            subtitle: Text("default"),
+            leading: Icon(Icons.perm_device_information),
+            title: Text("Version"),
+            subtitle: Text("1.0"),
             // onTap: () => ,
           ),
         ],

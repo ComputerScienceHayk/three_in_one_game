@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 import 'package:three_in_one_game/screens/Blipel.dart';
 import 'Alias.dart';
@@ -20,10 +21,33 @@ class _HomeScreenState extends State<HomeScreen> {
     Locale _locale = await setLocale(language.languageCode);
     ThreeInOne.setLocale(context, _locale);
   }
+  Future<bool> _onWillPop() {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Are you sure?'),
+        content: Text('Do you want to exit an App'),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text('No'),
+          ),
+          FlatButton(
+            onPressed: () => exit(0),
+            /*Navigator.of(context).pop(true)*/
+            child: Text('Yes'),
+          ),
+        ],
+      ),
+    ) ??
+        false;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child:Scaffold(
       backgroundColor: alias,
       appBar: AppBar(
         title: Text(getTranslated(context, 'hi')),
@@ -128,6 +152,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-    );
+    ));
   }
 }
