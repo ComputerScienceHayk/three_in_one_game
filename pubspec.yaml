@@ -11,17 +11,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences: ^0.5.8
+  shared_preferences: ^0.5.8 # nayi ste chka {} bayc petqa mi dzev haskana cragir@ te inch es grel, da anuma bacatnerov, uxxaki nayi naxord gradaran@ vonca arac
+  timer_count_down: ^1.0.4+1 # du el nuyn dzevi ara, minchev achqt sovori
   flutter_localizations:
     sdk: flutter
   path_provider:
-
   cupertino_icons: ^1.0.0
-  share : ^0.5.3
+  share: ^0.5.3
+  circular_check_box: ^1.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 
 flutter:
 

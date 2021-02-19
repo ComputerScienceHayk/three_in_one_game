@@ -5,5 +5,8 @@
   "ALIAS": "ALIAS",
   "PANTAMIMA": "PANTAMIMA",
   "BLIPEL": "BLIPEL",
-  "START": "START"
+  "START": "START",
+  "NEXT" : "NEXT",
+  "ACCEPT" : "ACCEPT",
+  "FAIL": "FAIL"
 }
